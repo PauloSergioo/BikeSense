@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "tb_clima")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +20,24 @@ public class Clima {
     @SequenceGenerator(name = "clima_seq", sequenceName = "clima_seq", allocationSize = 1)
     private Long id;
 
+    @Column(name = "cidade", length = 100)
     private String cidade;
+
+    @Column(name = "estado", length = 100)
     private String estado;
-    private Double temperaturaAtual;
+
+    @Column(name = "qualidade_ar", length = 50)
     private String qualidadeDoAr;
+
+    @Column(name = "temperatura", length = 50)
+    private String temperatura;
+
+    @Column(name = "previsao", length = 100)
     private String previsao;
-    private LocalDateTime horario;
+
+    @Column(name = "indice_uv", length = 50)
+    private String indiceUv;
+
+    @Column(name = "data_hora_registro")
+    private LocalDateTime dataHoraRegistro;
 }

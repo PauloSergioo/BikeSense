@@ -20,10 +20,13 @@ public class RotaRealizada {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "cpf")
     private Usuario usuario;
 
     @ManyToOne
+    @JoinColumn(name = "rota_id")
     private Rota rota;
 
+    @Column(name = "data")
     private LocalDate data;
 }

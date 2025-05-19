@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "tb_participante_grupo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,9 +18,13 @@ public class ParticipanteGrupo {
     @SequenceGenerator(name = "participante_seq", sequenceName = "participante_seq", allocationSize = 1)
     private Long id;
 
-    @ManyToOne
-    private Usuario usuario;
+    @Column(name = "nome", nullable = false, length = 100)
+    private String nome;
+
+    @Column(name = "telefone", length = 20)
+    private String telefone;
 
     @ManyToOne
+    @JoinColumn(name = "grupo_id", foreignKey = @ForeignKey(name = "fk_participante_grupo"))
     private Grupo grupo;
 }
